@@ -39,3 +39,9 @@ Thumbs.db
 
 # dotCover
 *.dotCover
+
+
+#OtherFiles`
+/node_modules
+package.json
+package-lock.json
