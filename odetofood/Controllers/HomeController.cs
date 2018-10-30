@@ -11,7 +11,8 @@ namespace odetofood.Controllers
         {
             var model = new Restaurant { Id = 1, Name = "The house of Good food" };
 
-            return new ObjectResult(model);
+            return View(model);
+          //  return new ObjectResult(model);
         }
     }
 }
