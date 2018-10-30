@@ -1,5 +1,5 @@
 ﻿using System;
-namespace odetofood.Models
+namespace odetofood.Entities
 {
     public class Restaurant
     {

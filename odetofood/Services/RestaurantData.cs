@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using odetofood.Models;
+using odetofood.Entities;
 
 namespace odetofood.Services
 {
