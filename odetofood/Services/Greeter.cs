@@ -1,5 +1,5 @@
 ﻿using System;
-namespace odetofood
+namespace odetofood.Services
 {
     public interface IGreeter
     {
