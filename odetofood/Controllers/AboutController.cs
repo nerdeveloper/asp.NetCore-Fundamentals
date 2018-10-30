@@ -1,6 +1,9 @@
 ﻿using System;
+using Microsoft.AspNetCore.Mvc;
+
 namespace odetofood.Controllers
 {
+    [Route("[controller]/[action]")]
     public class AboutController
     {
         public string Phone()

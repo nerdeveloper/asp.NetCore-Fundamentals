@@ -1,12 +1,17 @@
 ﻿using System;
+using Microsoft.AspNetCore.Mvc;
+using odetofood.Models;
+
 namespace odetofood.Controllers
 {
-    public class HomeController
+    public class HomeController : Controller
     {
-        public string Index()
+        public IActionResult Index()
 
         {
-            return "Hello from the HomeController!";
+            var model = new Restaurant { Id = 1, Name = "The house of Good food" };
+
+            return new ObjectResult(model);
         }
     }
 }
