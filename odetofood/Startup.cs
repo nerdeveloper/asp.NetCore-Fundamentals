@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Routing;
 
 namespace odetofood
 {
@@ -30,6 +31,7 @@ namespace odetofood
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
             services.AddSingleton<IGreeter, Greeter>(); 
         }
 
@@ -41,12 +43,24 @@ namespace odetofood
                 app.UseDeveloperExceptionPage();
             }
             app.UseFileServer();
-            app.Run(async (context) =>
-            {
-               // throw new Exception("Something went wrong!");
-                var message = greeter.GetGreeting();
-                await context.Response.WriteAsync(message);
-            });
+
+            app.UseMvc(configureRoutes);
+
+            app.Run(ctx => ctx.Response.WriteAsync("Not Found!"));
+            //app.Run(async (context) =>
+            //{
+            //   // throw new Exception("Something went wrong!");
+            //    var message = greeter.GetGreeting();
+            //    await context.Response.WriteAsync(message);
+            //}
+            //);
+        }
+
+        private void configureRoutes(IRouteBuilder routeBuilder)
+        {
+
+            //Home ?index
+            routeBuilder.MapRoute("Default", "{controller=home}/{action=Index}/{id?}");
         }
     }
 }
