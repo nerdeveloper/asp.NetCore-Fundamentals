@@ -44,7 +44,6 @@ namespace odetofood
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseFileServer();
 
             app.UseMvc(configureRoutes);
 
@@ -62,7 +61,7 @@ namespace odetofood
         {
 
             //Home ?index
-            routeBuilder.MapRoute("Default", "{controller=home}/{action=Index}/{id?}");
+            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }

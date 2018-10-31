@@ -11,9 +11,13 @@
         @foreach(var resturant in Model.Restaurants)
         {
         <tr>
-            <td>@resturant.Id</td>
+            <td>
+                <a href="/home/details/@resturant.Id">Details</a>
+                @Html.ActionLink("View", "Details", new {id = resturant.Id })
+              </td>
+
             <td>@resturant.Name</td>
-        </tr>
+        </tr> 
         }
 
     </table>
