@@ -39,6 +39,10 @@ namespace odetofood.Controllers
 
 
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
 
     }
 }
