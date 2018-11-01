@@ -45,15 +45,20 @@ namespace odetofood.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create( RestuarantEditViewModel model)
         {
-            var newRestaurant = new Restaurant();
-            newRestaurant.Cuisine = model.Cuisine;
-            newRestaurant.Name = model.Name;
+            if (ModelState.IsValid)
+            {
+                var newRestaurant = new Restaurant();
+                newRestaurant.Cuisine = model.Cuisine;
+                newRestaurant.Name = model.Name;
 
-            newRestaurant = _resturantData.Add(newRestaurant);
-            return RedirectToAction("Details", new {id = newRestaurant.Id });
+                newRestaurant = _resturantData.Add(newRestaurant);
+                return RedirectToAction("Details", new { id = newRestaurant.Id });
 
+            }
+            return View();
         }
 
     }

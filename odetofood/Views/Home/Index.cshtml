@@ -10,7 +10,7 @@
     <table>
         @foreach(var resturant in Model.Restaurants)
         {
-        <tr>
+        <tr> 
             <td>
                 <a href="/home/details/@resturant.Id">Details</a>
                 @Html.ActionLink("View", "Details", new {id = resturant.Id })
