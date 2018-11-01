@@ -1,13 +1,19 @@
-﻿@model odetofood.Entities.Restaurant
+﻿@using  odetofood.Controllers
+@model odetofood.Entities.Restaurant
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
 </head>
 <body>
     <h1>@Model.Name</h1>
-
     <div>
         @Html.ActionLink("Home", "Index");
+    </div>
+    <div>
+        Id: @Model.Id
+        Name: @Model.Name
+        Cuisine: @Model.Cuisine
+
     </div>
 </body>
 </html>

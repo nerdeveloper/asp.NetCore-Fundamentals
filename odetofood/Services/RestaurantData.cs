@@ -9,10 +9,11 @@ namespace odetofood.Services
     {
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
+        Restaurant Add(Restaurant newResturant);
     }
     public class InMemoryRestaurantData : IRestaurantData
     {
-        public InMemoryRestaurantData()
+        static  InMemoryRestaurantData()
         {
             _restaurants = new List<Restaurant>
             {
@@ -21,6 +22,7 @@ namespace odetofood.Services
                 new Restaurant { Id = 3, Name = "Priest"}
             };
         }
+
         public IEnumerable<Restaurant> GetAll()
         {
             return _restaurants;
@@ -31,6 +33,14 @@ namespace odetofood.Services
             return _restaurants.FirstOrDefault(r => r.Id == id);
         }
 
-        List<Restaurant> _restaurants;
+        public Restaurant Add(Restaurant newResturant)
+        {
+            newResturant.Id = _restaurants.Max(r => r.Id) + 1 ;
+            _restaurants.Add(newResturant);
+            return newResturant;
+
+        }
+
+       static List<Restaurant> _restaurants;
     }
 }

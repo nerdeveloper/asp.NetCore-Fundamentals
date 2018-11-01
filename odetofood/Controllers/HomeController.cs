@@ -20,15 +20,15 @@ namespace odetofood.Controllers
         {
             var model = new HomePageViewModel();
             model.Restaurants = _resturantData.GetAll();
-             model.CurrentMessage = _greeter.GetGreeting();
+            model.CurrentMessage = _greeter.GetGreeting();
 
             return View(model);
-          //  return new ObjectResult(model);
+            //  return new ObjectResult(model);
         }
-           public IActionResult Details(int id)
+        public IActionResult Details(int id)
         {
             var model = _resturantData.Get(id);
-            if(model == null)
+            if (model == null)
             {
                 return RedirectToAction("Index");
             }
@@ -39,9 +39,21 @@ namespace odetofood.Controllers
 
 
         }
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create( RestuarantEditViewModel model)
+        {
+            var newRestaurant = new Restaurant();
+            newRestaurant.Cuisine = model.Cuisine;
+            newRestaurant.Name = model.Name;
+
+            newRestaurant = _resturantData.Add(newRestaurant);
+            return View("Details", newRestaurant);
+
         }
 
     }
