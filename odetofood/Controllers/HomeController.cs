@@ -52,7 +52,7 @@ namespace odetofood.Controllers
             newRestaurant.Name = model.Name;
 
             newRestaurant = _resturantData.Add(newRestaurant);
-            return View("Details", newRestaurant);
+            return RedirectToAction("Details", new {id = newRestaurant.Id });
 
         }
 
