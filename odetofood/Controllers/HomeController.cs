@@ -45,7 +45,7 @@ namespace odetofood.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] 
         public IActionResult Create( RestuarantEditViewModel model)
         {
             if (ModelState.IsValid)
