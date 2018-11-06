@@ -1,10 +1,17 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
+
 namespace odetofood.Entities
 {
-    public class OdeToFoodDB
+
+   
+    public class OdeToFoodDB: DbContext
     {
-        public OdeToFoodDB()
+
+        public OdeToFoodDB(DbContextOptions options) : base(options)
         {
-        }
+
+        } 
+        public DbSet<Restaurant> Restaurants { get; set; }
     }
 }
