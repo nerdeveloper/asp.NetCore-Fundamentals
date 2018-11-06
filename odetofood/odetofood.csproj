@@ -12,6 +12,7 @@
     <Folder Include="Views\Home\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModel\" />
+    <Folder Include="Views\Shared\" />
   </ItemGroup>
 
   <ItemGroup>

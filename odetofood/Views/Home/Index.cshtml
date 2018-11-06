@@ -1,25 +1,26 @@
 ﻿@model odetofood.ViewModel.HomePageViewModel
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>OdeToFood</title>
-</head>
-<body>
-    <h1> Welcome</h1>
-    <h3>@Model.CurrentMessage</h3>
 
-    <table>
-        @foreach(var resturant in Model.Restaurants)
-        {
-        <tr> 
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1> Welcome</h1>
+
+
+<table>
+    @foreach (var resturant in Model.Restaurants)
+    {
+        <tr>
             <td>
                 <a href="/home/details/@resturant.Id">Details</a>
-                @Html.ActionLink("View", "Details", new {id = resturant.Id })
-              </td>
+                @Html.ActionLink("View", "Details", new { id = resturant.Id })
+            </td>
 
             <td>@resturant.Name</td>
-        </tr> 
-        }
+        </tr>
+    }
 
-    </table>
-</body>
-</html>
+</table>
+@section footer{
+    <h3>@Model.CurrentMessage</h3>
+}
