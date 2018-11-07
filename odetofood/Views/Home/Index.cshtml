@@ -10,13 +10,16 @@
 <table>
     @foreach (var resturant in Model.Restaurants)
     {
-        <tr>
-            <td>
-                <a asp-action="Details" asp-route-id="@resturant.Id">Details</a>
-            </td>
+    <tr>
 
-            <td>@resturant.Name</td>
-        </tr>
+
+        <td>@resturant.Name</td>
+
+        <td>
+            <a asp-action="Details" asp-route-id="@resturant.Id">Details</a>
+            <a asp-action="Edit" asp-route-id="@resturant.Id">Edit</a>
+        </td>
+    </tr>
     }
 
 </table>
