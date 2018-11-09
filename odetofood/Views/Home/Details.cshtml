@@ -1,16 +1,18 @@
-﻿@using  odetofood.Controllers
-@model odetofood.Entities.Restaurant
+﻿@using OdeToFood.Controllers
+@model OdeToFood.Entities.Restaurant
+
 @{
-    ViewBag.Title = "Details";
- }
+    ViewBag.Title = Model.Name;
+}
 
-    <h1>@Model.Name</h1>
-    <div>
-        @Html.ActionLink("Home", "Index");
-    </div>
-    <div>
-        Id: @Model.Id
-        Name: @Model.Name
-        Cuisine: @Model.Cuisine
+<h1>@Model.Name</h1>
 
-    </div>
+<div>
+    Id: @Model.Id
+</div>
+<div>
+    Cuisine: @Model.Cuisine
+</div>
+<div>
+    @Html.ActionLink("Home", nameof(HomeController.Index))
+</div>

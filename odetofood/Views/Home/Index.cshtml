@@ -1,21 +1,16 @@
-﻿@model odetofood.ViewModel.HomePageViewModel
+﻿@model OdeToFood.ViewModels.HomePageViewModel
 
 @{
     ViewBag.Title = "Home";
-
 }
-<h1> Welcome</h1>
-@foreach (var resturant in Model.Restaurants)
+
+<h1>Welcome!</h1>
+
+@foreach (var restaurant in Model.Restaurants)
 {
-    @Html.Partial("_Summary", resturant)
+    @Html.Partial("_Summary", restaurant)
 }
+
 <div>
-    <a asp-action="Create"> Create</a>
+    <a asp-action="Create">Create</a>
 </div>
-<br />
-<a asp-controller="home" asp-action="create"> Create</a>
-
-
-@section footer{
-    <h3>@Model.CurrentMessage</h3>
-}

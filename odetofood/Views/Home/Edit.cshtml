@@ -1,32 +1,30 @@
-﻿
-@model Restaurant
+﻿@model Restaurant
 
-@{ 
+@{
     ViewBag.Title = $"Edit {Model.Name}";
 }
+
 <div>
-    <h1>
-        Editing: @Model.Name
-    </h1>
+
+    <h1>Editing: @Model.Name</h1>
+
     <div>
         <form method="post" asp-antiforgery="true">
-            <div>
-
+            <div>                
                 <label asp-for="Name"></label>
                 <input asp-for="Name"/>
                 <span asp-validation-for="Name"></span>
             </div>
-            <div>
+            <div>                
                 <label asp-for="Cuisine"></label>
-                <select asp-for="Cuisine" asp-items="Html.GetEnumSelectList(typeof(CuisineType))"></select>
+                <select asp-for="Cuisine" asp-items="@Html.GetEnumSelectList(typeof(CuisineType))">                                        
+                </select>
                 <span asp-validation-for="Cuisine"></span>
-              </div>
-          
+            </div>
             <div>
-                <input type="submit" value="Save!"  />
-            </div> 
-            </form>
-        
+                <input type="submit" value="Save!" />
+            </div>
+        </form>
     </div>
-</div>                          
 
+</div>
