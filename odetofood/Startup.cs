@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Routing;
 using odetofood.Services;
 using odetofood.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace odetofood
 {
@@ -37,7 +38,8 @@ namespace odetofood
             services.AddMvc();
             services.AddSingleton<IGreeter, Greeter>();
             services.AddScoped<IRestaurantData, SqlResturantData>();
-            services.AddDbContext<OdeToFoodDB>(options => options.UseSqlServer(Configuration.GetConnectionString("odetoFood")));      
+            services.AddDbContext<OdeToFoodDB>(options => options.UseSqlServer(Configuration.GetConnectionString("odetoFood")));
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<OdeToFoodDB>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +49,8 @@ namespace odetofood
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseFileServer();
+            app.UseIdentity();
             app.UseMvc(configureRoutes);
 
             app.Run(ctx => ctx.Response.WriteAsync("Not Found!"));
